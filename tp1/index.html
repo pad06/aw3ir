@@ -1,41 +1,104 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="fr">
 <head>
-  <meta charset="utf-8" />
-  <meta http-equiv="x-ua-compatible" content="ie=edge" />
-  <title>TP1</title>
-  <meta name="description" content="" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
-  <!-- Place favicon.ico in the root directory -->
-
-  <style>
-    body {
-      background-color: #e9ebee;
-      font-family: system, -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif;
-      font-size: 16px;
-      margin: 0 auto;
-      max-width: 800px;
-    }
-  </style>
-
-  <!-- Code à dé-commenter si besoin de fichier CSS ou JS -->
-  <!--<link rel="stylesheet" href="style.css">-->
-  <!--<script src="main.js"></script>-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Ingénieur d'études et développement</title>
+    <link rel="stylesheet" href="cv.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
-
 <body>
-  <nav>
-    <a href="..">🏠 Index</a> / TP1
-  </nav>
-  <h1>TP 1</h1>
-  <!-- Add your site or application content here -->
-  <p>Hello world! This is HTML5 Boilerplate.</p>
-  <img src="../galilee.png" alt="Logo Galilee" />
+    <div class="container">
+        <header>
+            <h1>CV - Ingénieur d'études et développement</h1>
+        </header>
 
-  <h2><a href="experiences/index.html">Expériences</a></h2>
+        <table class="header-table" width="100%" >
+            <tr>
+                <td>Nom Prénom</td>
+                <td>Célibataire</td>
+            </tr>
+            <tr>
+                <td>93 Villetaneuse</td>
+                <td>Permis B</td>
+            </tr>
+            <tr>
+                <td><a href="mailto:nom.prenom@mail.com">nom.prenom@mail.com</a></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+
+    <section>
+        <h1><a href="formations.html">Formations</a></h1>
+        <table width="100%" border="1">
+            <tr>
+                <td>2016</td>
+                <td><a href="https://www.univ-paris13.fr" target="_blank">Master 3IR à l'université Paris XIII</a></td>
+            </tr>
+            <tr>
+                <td>2014</td>
+                <td><a href="https://www.univ-paris13.fr" target="_blank">Licence Telecom à l'université Paris XIII</a></td>
+            </tr>
+            <tr>
+                <td>2011</td>
+                <td>Bac S</td>
+            </tr>
+        </table>
+    </section>
+
+    <section>
+      <h1>Compétences</h1>
+      <table width="100%" border="1">
+          <tr>
+              <td>Développement</td>
+              <td>JAVA 7, HTML</td>
+          </tr>
+          <tr>
+              <td>Base de données</td>
+              <td>MySQL, PostgreSQL</td>
+          </tr>
+          <tr>
+              <td>Réseauxs</td>
+              <td>IPV6, LAN, WIFI</td>
+          </tr>
+          <tr>
+            <td>Langues</td>
+            <td>Anglais, bilingue, Français, Langue maternelle</td>
+        </tr>
+      </table>
+  </section>
+    
+    <section>
+        <h1><a href="experiences.html">Expériences</a></h1>
+        <table width="100%" border="1">
+            <tr>
+                <td>2016</td>
+                <td>Stage de fin d'études chez <a href="https://www.orange.com/fr" target="_blank">Orange</a></td>
+            </tr>
+            <tr>
+                <td>2014</td>
+                <td>Stage chez <a href="https://www.edf.fr" target="_blank">EDF</a></td>
+            </tr>
+        </table>
+    </section>
+    
+    <section>
+        <h1>Centres d'intérêts</h1>
+        <table width="100%" border="1">
+            <tr>
+                <td>Sport</td>
+                <td>Running, Volley-ball</td>
+            </tr>
+            <tr>
+                <td>Culture</td>
+                <td>Cinéma, Musée</td>
+            </tr>
+            <tr>
+                <td>Voyages</td>
+                <td>Angleterre, Espagne</td>
+            </tr>
+        </table>
+    </section>
 </body>
-
 </html>
