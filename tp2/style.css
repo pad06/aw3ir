@@ -1,0 +1,64 @@
+body {
+    background-color: #e9ebee;
+    font-family: system, -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif;
+    font-size: 16px;
+    margin: 0 auto;
+    max-width: 800px;
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  form {
+    background-color: white;
+    border-radius: 16px;
+    padding: 16px;
+    box-shadow: 0 2px 1px -1px #0003, 0 1px 1px #00000024, 0 1px 3px #0000001f;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    width: 150px;
+    display: inline-block;
+  }
+  
+  p {
+    margin-bottom: 15px;
+  }
+  
+  input {
+    width: 250px;
+    padding: 6px 12px;
+    border-radius: 5px;
+    border: 1px solid gray;
+    font-size: 1rem;
+    box-sizing: border-box;
+  }
+  
+  input[type="submit"] {
+    background-color: #0d6efd;
+    color: white;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+  }
+  
+  form:invalid input[type="submit"] {
+    background-color: gray;
+  }
+  
+  input:invalid {
+    border-color: red;
+  }
+  
+  input:invalid + .icon-ok {
+    display: none;
+  }
+  
+  input:valid + .icon-ok {
+    display: inline-block;
+  }
+  
