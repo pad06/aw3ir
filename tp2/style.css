@@ -44,7 +44,7 @@ body {
   input[type="submit"] {
     background-color: #0d6efd;
     color: white;
-    cursor: pointer;
+    cursor: pointer; 
     border: none;
     border-radius: 5px;
     padding: 10px 20px; 
