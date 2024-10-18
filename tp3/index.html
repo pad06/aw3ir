@@ -1,39 +1,155 @@
-<!doctype html>
-<html>
-
+<!DOCTYPE html>
+<html lang="fr">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>TP3</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TP AW avec Bootstrap 5</title>
 
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <!-- Place favicon.ico in the root directory -->
+    <!-- CSS Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- JavaScript Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" defer></script>
+
+    <!-- JavaScript personnalisé pour la validation -->
+    <script src="js/form-validation.js" defer></script>
 
     <style>
         body {
-            background-color: #e9ebee;
-            font-family: system, -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif;
-            font-size: 16px;
-            margin: 0 auto;
-            max-width: 800px;
+            background-color: #f0f2f5;
+        }
+        .container {
+            max-width: 600px;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+        }
+        .navbar {
+            padding: 5px 10px; 
+        }
+        .content-box {
+            background-color: #e9ecef; 
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 20px; 
+        }
+        .small-image {
+            max-width: 100px; 
+            height: auto; 
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            border: none;
+            border-radius: 20px;
+            padding: 10px 20px;
+            transition: background 0.3s ease;
+        }
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #0056b3, #003f7f);
+        }
+        .nav-text {
+            text-align: center; 
         }
     </style>
-
-    <!-- Code à dé-commenter si besoin de fichier CSS ou JS -->
-    <!--<link rel="stylesheet" href="style.css">-->
-    <!--<script src="main.js"></script>-->
 </head>
-
 <body>
-    <nav>
-        <a href="..">🏠 Index</a> / TP3
+    
+    <nav class="navbar navbar-light bg-light">
+        <div class="container d-flex justify-content-between align-items-center">
+            <a class="navbar-brand" href="..">🏠 Index</a>
+            <img src="../galilee.png" alt="Logo Galilee" class="small-image" />
+        </div>
     </nav>
-    <h1>tp3</h1>
-    <!-- Add your site or application content here -->
-    <p>Hello world! This is HTML5 Boilerplate.</p>
-    <img src="../galilee.png" alt="Logo Galilee" />
-</body>
 
+    <div class="container">
+        <div class="content-box">
+            <h1 class="mb-2 text-center">TP3</h1>
+            <p class="text-muted text-center">Hello world! This is HTML5 Boilerplate.</p>
+        </div>
+        
+        <h1 class="mb-4">TP AW</h1>
+        <p class="text-muted">Avec Bootstrap 5</p>
+        
+        <form id="myForm" class="needs-validation" novalidate>
+            <div class="mb-3 row">
+                <label for="nom" class="col-sm-3 col-form-label">Nom</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="nom" placeholder="Nom" required minlength="5">
+                    <div class="invalid-feedback">Le nom doit contenir au moins 5 caractères.</div>
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label for="prenom" class="col-sm-3 col-form-label">Prénom</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="prenom" placeholder="Prénom" required minlength="5">
+                    <div class="invalid-feedback">Le prénom doit contenir au moins 5 caractères.</div>
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label for="dateNaissance" class="col-sm-3 col-form-label">Date de naissance</label>
+                <div class="col-sm-9">
+                    <input type="date" class="form-control" id="dateNaissance" required>
+                    <div class="invalid-feedback">La date de naissance ne peut pas être dans le futur.</div>
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label for="adresse" class="col-sm-3 col-form-label">Adresse</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="adresse" placeholder="Adresse postale" required minlength="5">
+                    <div class="invalid-feedback">L'adresse doit contenir au moins 5 caractères.</div>
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label for="email" class="col-sm-3 col-form-label">Email</label>
+                <div class="col-sm-9">
+                    <input type="email" class="form-control" id="email" placeholder="Adresse mail" required>
+                    <div class="invalid-feedback">Veuillez saisir une adresse mail valide.</div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Valider</button>
+        </form>
+    </div>
+
+    <!-- Modal d'erreur -->
+    <div class="modal fade" id="errorModal" tabindex="-1" aria-labelledby="errorModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="errorModalLabel">Erreur dans le formulaire</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Tous les champs sont obligatoires et doivent être valides.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de confirmation -->
+    <div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="confirmationModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="confirmationModalLabel">Informations Soumises</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p id="modalContent"></p>
+                    <a id="mapLink" href="#" target="_blank">
+                        <img id="mapImage" src="" alt="Map" class="img-fluid" />
+                    </a>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
 </html>
