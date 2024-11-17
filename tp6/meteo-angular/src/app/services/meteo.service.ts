@@ -1,24 +1,43 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
-
-@Injectable({
-  providedIn: 'root'
-})
+import { Injectable } from "@angular/core";
+@Injectable({ providedIn: "root" })
 export class MeteoService {
-  private apiKey = 'b3344eac27ae2dd9f441551bc490908e'; // Remplacez par votre propre clé API si besoin
-  private apiUrl = 'https://api.openweathermap.org/data/2.5/weather';
-
-  constructor(private http: HttpClient) {}
-
-  getMeteo(city: string): Observable<any> {
-    return this.http.get(`${this.apiUrl}?q=${city}&units=metric&appid=${this.apiKey}&lang=fr`)
-      .pipe(
-        catchError(error => {
-          console.error(`Erreur de requête pour ${city}:`, error);
-          return throwError(() => new Error(`Météo introuvable pour ${city}`));
-        })
-      );
+  private apiKey = "b3344eac27ae2dd9f441551bc490908e";
+  private baseUrl = "https://api.openweathermap.org/data/2.5";
+  constructor() { }
+  getMeteo(name: string): Promise<any> {
+    console.log("from service", name);
+    return fetch(
+      `${this.baseUrl}/weather/?q=${name}&units=metric&lang=fr&appid=${this.apiKey}`
+    )
+      .then((response) => response.json())
+      .then((json) => {
+        if (json.cod == 200) {
+          return Promise.resolve(json);
+        } else {
+          console.error(`Météo introuvable pour ${name} (${json.message})`);
+          return Promise.reject(
+            `Météo introuvable pour ${name} (${json.message})`
+          );
+        }
+      });
+  }
+  getFiveDayForecast(name: string): Promise<any> {
+    console.log("Fetching 5-day forecast for", name);
+    return fetch(
+      `${this.baseUrl}/forecast?q=${name}&units=metric&lang=fr&appid=${this.apiKey}`
+    )
+      .then((response) => response.json())
+      .then((json) => {
+        if (json.cod == "200") {
+          return Promise.resolve(json);
+        } else {
+          console.error(
+            `Prévision introuvable pour ${name} (${json.message})`
+          );
+          return Promise.reject(
+            `Prévision introuvable pour ${name} (${json.message})`
+          );
+        }
+      });
   }
 }

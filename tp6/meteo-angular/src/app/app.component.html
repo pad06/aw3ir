@@ -1,8 +1,3 @@
-<div>
-  <h1>Welcome to {{ title }}!</h1>
-  <router-outlet></router-outlet>
-</div>
-
 <div class="container">
   <!-- Menu du haut de page -->
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -29,5 +24,8 @@
   <!-- Fin : menu du haut de page -->
 
   <!-- Contenu dynamique chargé par le routeur -->
-
+  <div>
+    <h1>Welcome to {{ title }}!</h1>
+    <router-outlet></router-outlet> <!-- Cela doit être ici -->
+  </div>
 </div>

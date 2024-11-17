@@ -15,7 +15,7 @@ export class MeteoComponent implements OnInit {
 
   cityList: MeteoItem[] = [];
 
-  constructor() {}
+  constructor() { }
 
   ngOnInit() {
     const storedList = localStorage.getItem("cityList");
